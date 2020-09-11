@@ -10,6 +10,7 @@ import { ServerComponent } from './servers/server/server.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthService } from './auth.service';
 import { AuthGuardService } from './auth-guard.sercive';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { AuthGuardService } from './auth-guard.sercive';
     ServersComponent,
     UsersComponent,
     ServerComponent,
+    ErrorPageComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [AuthService, AuthGuardService],

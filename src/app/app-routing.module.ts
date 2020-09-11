@@ -7,10 +7,16 @@ import { UsersComponent } from './users/users.component';
 import { ServersComponent } from './servers/servers.component';
 import { ServerComponent } from './servers/server/server.component';
 import { AuthGuardService } from './auth-guard.sercive';
+import { ErrorPageComponent } from './error-page/error-page.component';
+import { UsersResolver } from './users/users-resolver.service';
 
 const appRoutes: Route[] = [
   { path: '', component: HomeComponent },
-  { path: 'users', component: UsersComponent },
+  {
+    path: 'users',
+    component: UsersComponent,
+    resolve: { servers: UsersResolver },
+  },
   {
     path: 'servers',
     canActivateChild: [AuthGuardService],
@@ -23,7 +29,11 @@ const appRoutes: Route[] = [
       },
     ],
   },
-  { path: 'not-found', component: NotFoundComponent },
+  {
+    path: 'not-found',
+    component: ErrorPageComponent,
+    data: { message: '404 : Page Not Found' },
+  },
   { path: '**', redirectTo: '/not-found' },
 ];
 
