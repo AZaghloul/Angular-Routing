@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-4">
+  <a class="navbar-brand" href="#">Test Angular Routing</a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarNav"
+    aria-controls="navbarNav"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div
+    class="collapse navbar-collapse"
+    id="navbarNav"
+    style="justify-content: space-between"
+  >
+    <ul class="navbar-nav">
+      <li
+        class="nav-item"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <a class="nav-link" routerLink="/">Home</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/servers">Servers</a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/users">Users</a>
+      </li>
+    </ul>
+
+    <ul class="navbar-nav">
+      <li
+        *ngIf="!this.authService.user.loggedIn"
+        class="nav-item"
+        style="cursor: pointer"
+      >
+        <a class="nav-link btn btn-primary" (click)="login()">Login</a>
+      </li>
+      <li *ngIf="this.authService.user.loggedIn" class="nav-item">
+        <a class="nav-link">Hi Ahmed</a>
+      </li>
+      <li
+        *ngIf="this.authService.user.loggedIn"
+        class="nav-item"
+        style="cursor: pointer"
+      >
+        <a class="nav-link btn btn-primary" (click)="logout()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>

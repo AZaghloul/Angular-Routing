@@ -1,0 +1,11 @@
+<h2>Server No {{ id }}</h2>
+<h4>Edit Mode : {{ canEdit }}</h4>
+
+<button
+  class="btn btn-primary"
+  routerLink="/servers/2"
+  [queryParams]="{ allowEdit: true }"
+  [fragment]="'loading'"
+>
+  Go To Server 2 in Edit Mode
+</button>
